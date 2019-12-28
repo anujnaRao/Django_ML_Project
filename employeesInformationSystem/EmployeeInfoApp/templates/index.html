@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.3.1/scss' %}">
+</head>
+<body>
+{% block content %}
+    <h1>Insert</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {% for i in insert_form %}
+            <tr>
+            <th>{{ i.label }}</th>
+            <td>{{ i }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <button type="submit">Submit</button>
+    </form>
+
+
+{% endblock %}
+</body>
+</html>

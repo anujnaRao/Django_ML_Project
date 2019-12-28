@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.3.1/scss' %}">
+</head>
+<body>
+{% block content %}
+<table>
+<tr>
+    <th>ID</th>
+    <th>Employee ID</th>
+    <th>Employee Name</th>
+    <th>Address</th>
+    <th>Designation</th>
+    <th>Phone</th>
+    <th>Salary</th>
+    <th></th>
+    <th></th>
+
+</tr>
+{% for i in shelf %}
+
+<tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.addr }}</td>
+    <td>{{ i.designation }}</td>
+    <td>{{ i.empid }}</td>
+    <td>{{ i.phone }}</td>
+    <td>{{ i.salary }}</td>
+    <td><a href="../update/{{ i.id }}" id="{{ i.id }}">Edit</a></td>
+    <td><a href="../delete/{{ i.id }}" id="{{ i.id }}">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+
+</body>
+</html>
